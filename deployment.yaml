@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: myapi
-        image: eshaacr1.azurecr.io/myapi:latest
+        image: integratedacr0103.azurecr.io/mywebapi:latest
         ports:
-      - containerPort: 8080
+        - containerPort: 8080
 
 ---
 apiVersion: v1
