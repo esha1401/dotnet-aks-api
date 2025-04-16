@@ -16,7 +16,7 @@ spec:
       - name: myapi
         image: eshaacr1.azurecr.io/myapi:latest
         ports:
-        - containerPort: 8080
+      - containerPort: 8080
 
 ---
 apiVersion: v1
@@ -30,4 +30,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 8080
