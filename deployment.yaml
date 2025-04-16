@@ -16,7 +16,7 @@ spec:
       - name: myapi
         image: integratedacr0103.azurecr.io/mywebapi:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
 
 ---
 apiVersion: v1
@@ -30,4 +30,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 8081
