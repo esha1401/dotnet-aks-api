@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat "docker build -t %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%IMAGE_TAG% -f \"docker&kubernetes/Dockerfile\" \"docker&kubernetes\""
+                bat 'docker build -t %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%IMAGE_TAG% -f \"docker&kubernetes/Dockerfile\" \"docker&kubernetes\"'
             }
         }
 
@@ -29,9 +29,9 @@ pipeline {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: env.AZURE_CREDENTIALS_ID)]) {
                     dir(env.TF_WORKING_DIR) {
-                        bat "terraform init"
-                        bat "terraform plan -out=tfplan"
-                        bat "terraform apply -auto-approve tfplan"
+                        bat 'terraform init'
+                        bat 'terraform plan'
+                        bat 'terraform apply -auto-approve'
                     }
                 }
             }
@@ -40,15 +40,15 @@ pipeline {
         stage('Login to ACR & Push Image') {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: env.AZURE_CREDENTIALS_ID)]) {
-                    bat "az acr login --name %ACR_NAME%"
-                    bat "docker push %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%IMAGE_TAG%"
+                    bat 'az acr login --name %ACR_NAME%'
+                    bat 'docker push %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%IMAGE_TAG%'
                 }
             }
         }
 
         stage('Deploy to AKS') {
             steps {
-                bat "kubectl apply -f deployment.yml"
+                bat 'kubectl apply -f deployment.yml'
             }
         }
     }
