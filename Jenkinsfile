@@ -51,7 +51,7 @@ pipeline {
                 bat """
                     az acr login --name %ACR_NAME%
                     docker build -t %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%TAG% .
-                    docker push %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%TAG%
+                    docker push %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%TAG% -f docker&kubernetes/Dockerfile docker&kubernetes
                 """
             }
         }
