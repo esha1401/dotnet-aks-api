@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
     steps {
-        git branch: 'main', url: 'https://github.com/Avinashgoyal453/dotnet-api-aks-pipelinne.git'
+        git branch: 'main', url: 'https://github.com/esha1401/dotnet-aks-api.git'
     }
 }
 
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Terraform Init & Apply') {
             steps {
-                dir('terraform_1') {
+                dir('Terraform') {
                     bat 'terraform init'
                     bat 'terraform apply -auto-approve'
                 }
@@ -73,10 +73,10 @@ pipeline {
 
     post {
         failure {
-            echo "❌ Build failed."
+            echo "Build failed."
         }
         success {
-            echo "✅ Application deployed successfully to AKS!"
+            echo "Application deployed successfully to AKS!"
         }
     }
 }
