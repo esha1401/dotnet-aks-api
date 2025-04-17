@@ -9,7 +9,6 @@ pipeline {
         TAG = "latest"
         RESOURCE_GROUP = "rg-integrated-aks"
         AKS_CLUSTER_NAME = "integratedaks0103"
-        PATH = "C:\\WINDOWS\\SYSTEM32"
     }
 
     stages {
