@@ -50,6 +50,7 @@ pipeline {
                 bat "kubectl apply -f deployment.yml"
             }
         }
+    }
 
         
 
@@ -60,6 +61,5 @@ pipeline {
         failure {
             echo 'Build failed.'
         }
-    }
     }
 }
