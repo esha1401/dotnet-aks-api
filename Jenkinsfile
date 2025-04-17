@@ -3,12 +3,12 @@ pipeline {
 
     environment {
         AZURE_CREDENTIALS_ID = 'azure-service-principal' // Must be configured in Jenkins credentials
-        ACR_NAME = "avinashcr1"
-        ACR_LOGIN_SERVER = "avinashcr1.azurecr.io"
+        ACR_NAME = "integratedacr0103"
+        ACR_LOGIN_SERVER = "integratedacr0103.azurecr.io"
         IMAGE_NAME = "myapi"
         TAG = "latest"
-        RESOURCE_GROUP = "myResourceGroup"
-        AKS_CLUSTER_NAME = "avinashAKSCluster"
+        RESOURCE_GROUP = "rg-integrated-aks"
+        AKS_CLUSTER_NAME = "integratedaks0103"
     }
 
     stages {
