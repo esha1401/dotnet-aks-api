@@ -2,13 +2,6 @@ pipeline {
     agent any
 
     environment {
-        DOTNET_PATH = 'C:\\Program Files\\dotnet'
-        DOCKER_PATH = 'C:\\Program Files\\Docker\\Docker\\resources\\bin'
-        TERRAFORM_PATH = 'C:\\Users\\eshas'
-        AZURE_CLI_PATH = 'C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin'
-        
-        PATH = "${DOTNET_PATH};${DOCKER_PATH};${TERRAFORM_PATH};${AZURE_CLI_PATH};${PATH}"
-        
         ACR_NAME = 'integratedacr0103'
         AZURE_CREDENTIALS_ID = 'azure-service-principal'
         ACR_LOGIN_SERVER = "${ACR_NAME}.azurecr.io"
